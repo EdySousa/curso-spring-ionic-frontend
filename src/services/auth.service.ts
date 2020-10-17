@@ -28,7 +28,7 @@ export class AuthService {
         let tok = authorizationValue.substring(7) // remover a palavra Bearer no token
         let user: LocalUser = {
             token: tok,
-            email: this.jwtHelper.decodeToken(tok).sub
+            email: this.jwtHelper.decodeToken(tok).sub // obter o email
         };
         this.storage.setLocalUser(user);
     }
