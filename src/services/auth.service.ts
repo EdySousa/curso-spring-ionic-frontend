@@ -25,7 +25,7 @@ export class AuthService {
     }
 
     sucessfulLogin(authorizationValue: string) {
-        let tok = authorizationValue.substring(7) // remover a palavra Bearer no token
+        let tok = authorizationValue.substring(7) // remover a palavra Bearer no token inclusivo espaço em branco.
         let user: LocalUser = {
             token: tok,
             email: this.jwtHelper.decodeToken(tok).sub // obter o email
