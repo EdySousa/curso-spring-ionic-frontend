@@ -24,20 +24,28 @@ export class HomePage {
 
   }
 
-  login() {
-    this.auth.authenticate(this.creds).subscribe(response => {
-      this.auth.sucessfulLogin(response.headers.get('Authorization'));
-      this.navCtrl.push('CategoriasPage');
-    },
-      error => { });
-  }
-
   ionViewWillEnter() {
     this.menu.swipeEnable(false);
   }
 
   ionViewDidLeave() {
     this.menu.swipeEnable(true);
+  }
+
+  ionViewDidEnter(){
+    this.auth.refreshToken().subscribe(response => {
+      this.auth.sucessfulLogin(response.headers.get('Authorization'));
+      this.navCtrl.push('CategoriasPage');
+    },
+      error => { });
+  }
+
+  login() {
+    this.auth.authenticate(this.creds).subscribe(response => {
+      this.auth.sucessfulLogin(response.headers.get('Authorization'));
+      this.navCtrl.push('CategoriasPage');
+    },
+      error => { });
   }
 
 

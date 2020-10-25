@@ -24,6 +24,15 @@ export class AuthService {
         );
     }
 
+    refreshToken(){
+        return this.http.post(API_CONFIG.refrshToken, {},
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
     sucessfulLogin(authorizationValue: string) {
         let tok = authorizationValue.substring(7) // remover a palavra Bearer no token inclusivo espaço em branco.
         let user: LocalUser = {
