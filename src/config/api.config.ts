@@ -5,6 +5,7 @@ const refrshToken = baseUrl + '/auth/refresh_token';
 const bucketBaseUrl = "https://es-course-spring-ionic.s3-sa-east-1.amazonaws.com";
 const clientes = baseUrl + '/clientes';
 const email = clientes + '/email';
+const estados = baseUrl + '/estados';
 
 export const API_CONFIG = {
     baseUrl: baseUrl,
@@ -12,5 +13,6 @@ export const API_CONFIG = {
     bucketBaseUrl: bucketBaseUrl,
     login: login,
     refrshToken: refrshToken,
-    email: email
+    email: email,
+    estados: estados
 }
